@@ -22,7 +22,5 @@ class ReviewPayload(BaseModel):
             raise Exception(
                 "The given value 'asin' does not exist."
             )
-        self.product_id = result.id
-
     title: str = Field(min_length=5, max_length=64)
     review: str = Field(...)

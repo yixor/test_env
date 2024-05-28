@@ -10,6 +10,18 @@ from utils.responses import JSONResponse
 product_bp = Blueprint('product', __name__)
 
 
+@product_bp.route('/list', methods=['GET'])
+def get_all_products():
+    with Session(pg_engine) as s:
+        products = s.query(Product).all()
+        products_dict = {"products": [product.to_dict()
+                                      for product in products]}
+        products_json = orjson.dumps(products_dict)
+        Cache().cache_page(url="product/list",
+                           content=products_json)
+        return JSONResponse(products_json)
+
+
 @product_bp.route('/<int:id>', methods=['GET'])
 def get_product(id: int):
     reviews_page = request.args.get("page", type=int)

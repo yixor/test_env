@@ -8,10 +8,11 @@ from sqlalchemy.orm import Session
 review_bp = Blueprint('review', __name__)
 
 
-@review_bp.route('/add', methods=['POST'])
-def add_review():
+@review_bp.route('/add/<int:product_id>', methods=['POST'])
+def add_review(product_id: int):
     try:
         payload = ReviewPayload(**request.get_json())
+        payload.product_id = product_id
         with Session(pg_engine) as s:
             review_obj = Review(asin=payload.asin,
                                 title=payload.title,
