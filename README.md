@@ -50,12 +50,12 @@ Pagination is available via the **page** parameter. Example: `?page=1`:
 
 ![image](https://github.com/yixor/test_env/assets/119937880/da6f8270-f5fc-490c-9e42-a86346305a26)
 
-Adding new records is available at the path `/review/add/<int:product_id>` using the **POST** method and the **"application/json"** content-type.
+Adding new records is available at the path `/product/<int:product_id>/add/review` using the **POST** method and the **"application/json"** content-type.
 
 ```
-curl -X POST http://172.19.0.4:8000/review/add/137 \
+curl -X POST http://172.19.0.4:8000/product/137/add/review \
      -H "Content-Type: application/json" \
-     -d '{"asin": "B06X14Z8JP", "title": "Test_Review", "review": "Test Review"}'
+     -d '{"title": "Test_Review", "review": "Test Review"}'
 ```
 And result:
 
