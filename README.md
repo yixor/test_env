@@ -57,3 +57,6 @@ curl -X POST http://172.19.0.4:8000/review/add/137 \
      -H "Content-Type: application/json" \
      -d '{"asin": "B06X14Z8JP", "title": "Test_Review", "review": "Test Review"}'
 ```
+And result:
+
+![image](https://github.com/yixor/test_env/assets/119937880/dd76d472-50e1-4e73-bcbd-e8704aefd3e7)
