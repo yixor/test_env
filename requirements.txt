@@ -1,0 +1,10 @@
+flask
+supervisor
+sqlalchemy
+alembic
+orjson
+pydantic
+pandas
+redis[hiredis]
+psycopg2-binary
+gunicorn
